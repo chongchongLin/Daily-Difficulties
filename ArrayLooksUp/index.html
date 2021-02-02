@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const msg = {
+        "msg": "",
+        "data": [{
+            "name": "智慧文旅",
+            "id": "4a8cb175-3527-11eb-8596-000c291f3310",
+            "sort": 1.0,
+            "title": "智慧文旅(3)"
+        }, {
+            "name": "资料管理处",
+            "id": "44842a91-3527-11eb-8596-000c291f3310",
+            "sort": 2.0,
+            "title": "资料管理处(0)"
+        }, {
+            "parent": "4a8cb175-3527-11eb-8596-000c291f3310",
+            "name": "部门",
+            "id": "29c40839-6463-11eb-9700-000c291f3310",
+            "sort": 3.0,
+            "title": "部门(0)"
+        }, {
+            "parent": "4a8cb175-3527-11eb-8596-000c291f3310",
+            "name": "部门",
+            "id": "2c52a4ff-6462-11eb-9700-000c291f3310",
+            "sort": 4.0,
+            "title": "部门(1)"
+        }],
+        "errorCode": 0
+    }
+
+    const msg1 = {
+        "msg": "",
+        "data": [{
+            "name": "智慧文旅",
+            "id": "4a8cb175-3527-11eb-8596-000c291f3310",
+            "text": "智慧文旅(3)",
+            "sort": 1.0
+        }, {
+            "name": "资料管理处",
+            "id": "44842a91-3527-11eb-8596-000c291f3310",
+            "text": "资料管理处(0)",
+            "sort": 2.0
+        }, {
+            "parent": "4a8cb175-3527-11eb-8596-000c291f3310",
+            "name": "部门",
+            "id": "29c40839-6463-11eb-9700-000c291f3310",
+            "text": "部门(0)",
+            "sort": 3.0
+        }, {
+            "parent": "4a8cb175-3527-11eb-8596-000c291f3310",
+            "name": "部门",
+            "id": "2c52a4ff-6462-11eb-9700-000c291f3310",
+            "text": "部门(1)",
+            "sort": 4.0
+        }, {
+            "parent": "2c52a4ff-6462-11eb-9700-000c291f3310",
+            "name": "部门",
+            "id": "2380c5aa-6469-11eb-9700-000c291f3310",
+            "text": "部门(0)",
+            "sort": 5.0
+        }],
+        "errorCode": 0
+    }
+    const {
+        data
+    } = msg;
+    const data1 = msg1.data;
+
+    let arr = data.map((item) => item.id);
+    let arr1 = data1.map((item) => item.id);
+
+    let indexList = [];
+
+    function getIndex(fatherList, childList) {
+        childList.forEach((child) => {
+            const result = fatherList.findIndex((father) => father === child)
+            result > -1 ? indexList.push(result) : ''
+        })
+    }
+    getIndex(arr1, arr);
+    indexList.forEach((item) => {
+        data1[item].selected = true
+    })
+    console.log(data1)
+</script>
+
+</html>
