@@ -3,4 +3,4 @@
 
 No | Chinese | English 
 --- | --- | ---
-1 | 一个数组从另一个数组中查找对应的索引值 | ArrayLooksUpIndex
+1 | 求对象数组的交集 | ArrayLooksUpIndex
