@@ -4,3 +4,4 @@
 No | Chinese | English 
 --- | --- | ---
 1 | 求对象数组的交集 | ArrayLooksUpIndex
+2 | 10w数据前端处理方式 |  10w DataProcessing

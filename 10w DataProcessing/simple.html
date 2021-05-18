@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <ul id="ul"></ul>
+</body>
+<script>
+    let lastTime = new Date().getTime();
+    const total = 100000;
+    let ul = document.getElementById('ul');
+    for(let i=0;i<total;i++){
+        let li = document.createElement('li');
+        li.innerText = ~~(Math.random()*total);
+        ul.appendChild(li);
+    }
+    setTimeout(()=>{
+        let newTime = new Date().getTime();
+        console.log('时间间隔',newTime - lastTime)
+    },0)
+</script>
+</html>

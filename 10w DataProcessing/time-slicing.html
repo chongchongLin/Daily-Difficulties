@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间分片</title>
+</head>
+
+<body>
+    <ul id="ul"></ul>
+</body>
+<script>
+    const total = 100000;
+    let ul = document.getElementById('ul');
+    let once = 20;
+    let index = 0;
+    let pageNum = total/once;
+
+    function loop(curTol, curIndex) {
+        if (curTol < 0) return false;
+        let pageSize = Math.min(curTol,once)
+        window.requestAnimationFrame(()=>{
+            //使用文档片段
+            let fargment = document.createDocumentFragment();
+            for(let i=0;i<pageSize;i++){
+                let li = document.createElement('li');
+                li.innerText = i+curIndex+ ':' + ~~(Math.random()*curTol)
+                fargment.appendChild(li)
+            }
+            ul.appendChild(fargment)
+            loop(curTol-pageSize,curIndex+pageSize);
+        })
+    }
+
+    loop(total,index)
+</script>
+
+</html>
